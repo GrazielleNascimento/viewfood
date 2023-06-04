@@ -53,4 +53,30 @@ export default {
         const json = await req.json()
         return json
     },
+    atualizaProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
+        const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
+            method: 'PUT',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ codigo, nome, quantidade, dataValidade, preco, categoria })
+        })
+
+        const json = await req.json()
+        return json
+    },
+    deletaProduto: async (codigo) => {
+        const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
+            method: 'DELETE',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ codigo })
+        })
+
+        const json = await req.json()
+        return json
+    },
 }

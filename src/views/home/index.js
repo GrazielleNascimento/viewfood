@@ -15,7 +15,7 @@ const Home = () => {
 
     const handleCadastrarClick = () => {
         console.log('Ir para a tela de cadastro de produtos');
-        navigation.navigate('CadastroProduto');
+        navigation.navigate('CadastroProduto', { produto: {} });
     }
 
     return (

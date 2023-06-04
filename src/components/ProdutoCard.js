@@ -4,7 +4,10 @@ import styled from 'styled-components/native'
 // navegacao
 import { useNavigation } from "@react-navigation/native";
 
-const Container = styled.View`
+// api
+import ApiService from "../service/ApiService";
+
+const Container = styled.TouchableOpacity`
     width: 100%;
     height: 120px;
     background-color: #ffff;
@@ -32,13 +35,43 @@ const Informacao = styled.Text`
     font-size:16;
 `
 
+const DeleteButton = styled.TouchableOpacity`
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #FF5151;
+    border-radius: 5px;
+    width: 45px;
+    height: 20px
+    justify-content: space-between;
+    align-items: center;
+`
 
-const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria }) => {
+const DeleteButtonText = styled.Text`
+    color: black;
+`
+
+
+const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria, onPress }) => {
 
     const navigation = useNavigation();
 
+    const handleDeleteClick = async () => {
+        let res = await ApiService.deletaProduto(codigo)
+        if (res.message === 'O produto foi removido com sucesso!') {
+            alert('✅Produto deletado com sucesso!')
+            navigation.reset({
+                routes: [{ name: 'Home' }]
+            })
+        } else {
+            res.message
+            alert("Erro: " + JSON.stringify(res.error ? res.error[0].msg : 'Ocorreu um erro ao tantar deletar o produto'))
+        }
+    }
+
+
     return (
-        <Container>
+        <Container onPress={onPress}>
             <Nome>{nome}</Nome>
             <InfoArea>
                 <Informacao>Codigo: {codigo}</Informacao>
@@ -47,6 +80,9 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria 
                 <Informacao>Preco: {dataValidade}</Informacao>
                 <Informacao>Data de Validade: {preco}</Informacao>
             </InfoArea>
+            <DeleteButton onPress={handleDeleteClick}>
+                <DeleteButtonText>Excluir</DeleteButtonText>
+            </DeleteButton>
         </Container>
 
     )

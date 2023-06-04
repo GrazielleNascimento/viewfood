@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { View, Picker } from "react-native";
 import { Container, Header, CustomViewName, Formulario, CustomButton, CustomButtonText } from "./styles";
@@ -12,7 +12,7 @@ import FormularioSelect from "../../components/FormularioSelect";
 // api
 import ApiService from "../../service/ApiService";
 
-const CadastroProduto = () => {
+const CadastroProduto = ({ route }) => {
 
     const navigation = useNavigation();
     const [codigoProdutoField, setCodigoProdutoField] = useState('');
@@ -22,32 +22,68 @@ const CadastroProduto = () => {
     const [precoProdutoField, setPrecoProdutoField] = useState('');
     const [categoriaProdutoField, setCategoriaProdutoField] = useState('');
 
+    const { produto } = route.params;
+
+    console.log(produto);
+
     const handleSalvarClick = async () => {
-        console.log(codigoProdutoField);
-        console.log(nomeProdutoField);
-        console.log(categoriaProdutoField);
-        console.log(datavalidadeProdutoField);
-        console.log(precoProdutoField);
-        console.log(quantidadeProdutoField);
+        // console.log(codigoProdutoField);
+        // console.log(nomeProdutoField);
+        // console.log(categoriaProdutoField);
+        // console.log(datavalidadeProdutoField);
+        // console.log(precoProdutoField);
+        // console.log(quantidadeProdutoField);
 
-        // cadastra o usuario no banco e volta para o login
-        if (codigoProdutoField && nomeProdutoField && quantidadeProdutoField && datavalidadeProdutoField && precoProdutoField && categoriaProdutoField) {
-            let res = await ApiService.cadastrarProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
-            if (res.message === 'novo produto cadastrado com sucesso!') {
+        if (produto.codigo) {
+            // atualiza o produto se vier da rota
+            if (codigoProdutoField && nomeProdutoField && quantidadeProdutoField && datavalidadeProdutoField && precoProdutoField && categoriaProdutoField) {
 
-                alert('✅Produto cadastrado com sucesso!')
-                navigation.reset({
-                    routes: [{ name: 'Home' }]
-                })
-            } else {
-                res.message
-                alert("Erro: " + JSON.stringify(res.error ? res.error[0].msg : 'Ocorreu um erro ao tantar cadastrar o produto'))
+                let res = await ApiService.atualizaProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
+                if (res.message === 'Produto atualizado com sucesso!') {
+                    alert('✅Produto atualizado com sucesso!')
+                    navigation.reset({
+                        routes: [{ name: 'Home' }]
+                    })
+                } else {
+                    res.message
+                    alert("Erro: " + JSON.stringify(res.error ? res.error[0].msg : 'Ocorreu um erro ao tantar atualizar o produto'))
+                }
             }
 
         } else {
-            alert('Preencha todos os campos')
+
+            // cadastra o usuario no banco e volta para o login
+            if (codigoProdutoField && nomeProdutoField && quantidadeProdutoField && datavalidadeProdutoField && precoProdutoField && categoriaProdutoField) {
+
+
+                let res = await ApiService.cadastrarProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
+                if (res.message === 'novo produto cadastrado com sucesso!') {
+
+                    alert('✅Produto cadastrado com sucesso!')
+                    navigation.reset({
+                        routes: [{ name: 'Home' }]
+                    })
+                } else {
+                    res.message
+                    alert("Erro: " + JSON.stringify(res.error ? res.error[0].msg : 'Ocorreu um erro ao tantar cadastrar o produto'))
+                }
+
+            } else {
+                alert('Preencha todos os campos')
+            }
         }
     }
+
+    useEffect(() => {
+        if (produto) {
+            setCodigoProdutoField(produto.codigo || '');
+            setNomeProdutoField(produto.nome || '');
+            setQuantidadeProdutoField(produto.quantidade || '');
+            setDatavalidadeProdutoField(produto.dataValidade || '');
+            setPrecoProdutoField(produto.preco || '');
+            setCategoriaProdutoField(produto.categoria || '');
+        }
+    }, [produto])
 
     return (
         <Container>

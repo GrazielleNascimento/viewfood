@@ -34,6 +34,10 @@ const ListaProduto = () => {
         getProdutos();
     }, []);
 
+    const navegateToAtualizaProduto = (produto) => {
+        navigation.navigate("CadastroProduto", { produto });
+    }
+
     return (
         <Container>
             <Header>
@@ -53,6 +57,7 @@ const ListaProduto = () => {
                             dataValidade={produto.dataValidade}
                             preco={produto.preco}
                             categoria={produto.categoria}
+                            onPress={() => navegateToAtualizaProduto(produto)}
                         />
                     ))}
                 </Cards>
