@@ -14,20 +14,33 @@ import SignInput from '../../components/SignInput';
 
 // navegacao
 import { useNavigation } from "@react-navigation/native";
+import ApiService from "../../service/ApiService.js";
 
 
 
 const Login = () => {
 
-    const [usuario, setUsuario] = useState('');
-    const [senha, setSenha] = useState('');
+    const [emailField, setUsuario] = useState('');
+    const [senhaField, setSenha] = useState('');
 
     const navigation = useNavigation();
 
-    const handleLoginClick = () => {
-        // autenticação
-        console.log('Usuário:', usuario);
-        console.log('Senha:', senha);
+    const handleLoginClick = async () => {
+        if (emailField && senhaField) {
+            let res = await ApiService.login(emailField, senhaField)
+            console.log(res)
+
+            if (res.message === 'usuario cadastrado!') {
+
+                alert('✅ Login efetuado com sucesso')
+                navigation.reset({
+                    routes: [{ name: 'Home' }]
+                })
+            } else {
+                alert("Erro: " + JSON.stringify(res.errors ? res.errors[0].msg : 'Ocorreu um erro ao tanter logar'))
+            }
+
+        }
     };
 
     const handleCadastroClick = () => {
@@ -45,13 +58,13 @@ const Login = () => {
                 <SignInput
                     icon='mail'
                     placeholder='Digite seu e-mail'
-                    value={usuario}
+                    value={emailField}
                     onChangeText={t => setUsuario(t)}
                 />
                 <SignInput
                     icon='lock'
                     placeholder='Digite sua senha'
-                    value={senha}
+                    value={senhaField}
                     onChangeText={t => setSenha(t)}
                     password={true}
                 />

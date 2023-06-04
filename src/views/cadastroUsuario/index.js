@@ -7,6 +7,7 @@ import { useNavigation } from '@react-navigation/native'
 
 import ViewFood from '../../components/icons/ViewFood'
 import SignInput from '../../components/SignInput'
+import ApiService from '../../service/ApiService'
 
 export default () => {
     const navigation = useNavigation()
@@ -22,13 +23,20 @@ export default () => {
         })
     }
 
-    const handleCadastrarClick = () => {
+    const handleCadastrarClick = async () => {
         // cadastra o usuario no banco e volta para o login
         if (nomeField && senhaField && emailField) {
-            alert('✅Usuário criado com sucesso. Efetue o login')
-            navigation.reset({
-                routes: [{ name: 'Login' }]
-            })
+            let res = await ApiService.cadastrarUsuario(nomeField, emailField, senhaField)
+            if (res) {
+
+                alert('✅Usuário criado com sucesso. Efetue o login')
+                navigation.reset({
+                    routes: [{ name: 'Login' }]
+                })
+            } else {
+                alert("Erro: " + JSON.stringify(res.errors ? res.errors[0].msg : 'Ocorreu um erro ao tanter logar'))
+            }
+
         } else {
             alert('Preencha todos os campos')
         }
