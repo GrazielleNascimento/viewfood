@@ -28,5 +28,18 @@ export default {
 
         const json = await req.json()
         return json
+    },
+    cadastrarProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
+        const req = await fetch(`${BASE_URL}/produto/novo`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ codigo, nome, quantidade, dataValidade, preco, categoria })
+        })
+
+        const json = await req.json()
+        return json
     }
 }

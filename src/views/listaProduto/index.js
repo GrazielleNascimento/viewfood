@@ -13,7 +13,7 @@ const ListaProduto = () => {
 
     return (
         <View>
-            Cadastro Usuario
+            lista de produtos
         </View>
 
     )
