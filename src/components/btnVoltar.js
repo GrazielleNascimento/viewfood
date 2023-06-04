@@ -1,5 +1,6 @@
 import React from "react";
 import styled from 'styled-components/native'
+import { AntDesign } from '@expo/vector-icons';
 
 // navegacao
 import { useNavigation } from "@react-navigation/native";
@@ -7,13 +8,11 @@ import { useNavigation } from "@react-navigation/native";
 const Card = styled.TouchableOpacity`
 width: 50px;
 height: 30px;
-background-color: #ffff;
 flex-direction: center;
 justify-content: center;
 border-radius: 5px;
 align-items: center;
 margin: 5px;
-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `
 const CustomCardText = styled.Text`
 font-size: 14px;
@@ -32,7 +31,8 @@ const BtnVoltar = () => {
 
     return (
         <Card onPress={handleVoltarClick}>
-            <CustomCardText>Voltar</CustomCardText>
+            <AntDesign name={"arrowleft"} size={40} color="#4A4A4A" />
+
         </Card>
     )
 }

@@ -38,4 +38,5 @@ export const CustomCardText = styled.Text`
 font-size: 20px;
 color: #000000;
 font-weight: bold;
+margin-right: 140px
 `
