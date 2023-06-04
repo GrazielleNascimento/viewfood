@@ -41,5 +41,16 @@ export default {
 
         const json = await req.json()
         return json
-    }
+    },
+    getProdutos: async () => {
+        const req = await fetch(`${BASE_URL}/produto/`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+            }
+        })
+        const json = await req.json()
+        return json
+    },
 }
