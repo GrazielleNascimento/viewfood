@@ -2,6 +2,7 @@
 
 * Trabalho da disciplina de Mobile no curso de ADS da [Fatec Itu](https://fatecitu.edu.br/portal/cursos/analise-e-desenvolvimento-de-sistemas/)
 * App React-Native/Expo para constrole de produtos alimentícios. O app é capaz de cadastrar e validar usuários bem como realizar o CRUD completo dos produtos.
+* [View Food Backend NodeJS API](https://github.com/Grazielle127/viewfood-backend) para requisições ao banco de integrado ao MongoDB
 
 ## :books: Informações Gerais
 - React [useState hook](https://reactjs.org/docs/hooks-state.html) utilizado para controlar os dados dos usuários e dos produtos.
