@@ -53,6 +53,17 @@ export default {
         const json = await req.json()
         return json
     },
+    getProduto: async (codigo) => {
+        const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await req.json()
+        return json
+    },
     atualizaProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
         const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
             method: 'PUT',

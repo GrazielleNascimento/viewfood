@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView } from 'react-native'
 import { Container, Header, CustomViewName, Cards } from "./styles";
+import { useRoute } from '@react-navigation/native';
+
 
 
 // navegacao
@@ -18,12 +20,20 @@ import ApiService from "../../service/ApiService";
 const ListaProduto = () => {
 
     const navigation = useNavigation();
+    const route = useRoute();
     const [produtos, setProdutos] = useState([]);
 
-    const getProdutos = async () => {
+    const getProdutos = async (codigo) => {
         try {
-            let res = await ApiService.getProdutos();
-            setProdutos(res)
+            let res
+            if (codigo) {
+                res = await ApiService.getProduto(codigo);
+                setProdutos(res ? [res] : []); // Transforma o objeto em um array
+            } else {
+                res = await ApiService.getProdutos();
+                setProdutos(res || []); // Define um array vazio caso não haja produtos
+            }
+
             console.log(res)
         } catch (error) {
             console.error(error);
@@ -31,8 +41,12 @@ const ListaProduto = () => {
     }
 
     useEffect(() => {
-        getProdutos();
-    }, []);
+        if (route.params && route.params.codigo) {
+            getProdutos(route.params.codigo)
+        } else {
+            getProdutos();
+        }
+    }, [route.params]);
 
     const navegateToAtualizaProduto = (produto) => {
         navigation.navigate("CadastroProduto", { produto });
@@ -47,7 +61,6 @@ const ListaProduto = () => {
 
             <ScrollView>
                 <Cards>
-
                     {produtos.map((produto, index) => (
                         <ProdutoCard
                             key={index}

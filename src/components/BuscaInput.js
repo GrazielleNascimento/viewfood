@@ -33,8 +33,13 @@ export default ({ icon, placeholder, value, onChangeText, codigo }) => {
     const navigation = useNavigation();
 
     const handleBuscarClick = () => {
-        console.log('Ir para a tela de lista de produtos');
-        navigation.navigate('ListaProduto');
+        if (value) {
+            console.log('Ir para a tela de lista de produto especifico');
+            navigation.navigate('ListaProduto', { codigo: value });
+        } else {
+            console.log('Ir para a tela de lista de produtos');
+            navigation.navigate('ListaProduto');
+        }
     }
 
 
