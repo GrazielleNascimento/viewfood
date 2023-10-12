@@ -77,8 +77,8 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria,
                 <Informacao>Codigo: {codigo}</Informacao>
                 <Informacao>Categoria: {categoria}</Informacao>
                 <Informacao>Quantidade: {quantidade}</Informacao>
-                <Informacao>Preco: {dataValidade}</Informacao>
-                <Informacao>Data de Validade: {preco}</Informacao>
+                <Informacao>Preco: {preco}</Informacao>
+                <Informacao>Data de Validade: {dataValidade}</Informacao>
             </InfoArea>
             <DeleteButton onPress={handleDeleteClick}>
                 <DeleteButtonText>Excluir</DeleteButtonText>

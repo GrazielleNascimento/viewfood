@@ -12,9 +12,13 @@ const InputArea = styled.View`
     align-items: center;
     margin-bottom: 15px;
 `
-const Input = styled.TextInput`
+const Input = styled.TextInput.attrs({
+    placeholderTextColor: '#4A4A4A',
+    border: '#4A4A4A',
+    selectionColor: 'transparent',
+})`
     flex: 1;
-    font-size: 16px;
+    font-size: 20px;
     color: #4A4A4A;
     margin-left: 10px;
 `
