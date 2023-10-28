@@ -30,17 +30,19 @@ const styles = StyleSheet.create({
 
         marginBottom: '5px',
         marginTop: '5px',
-        width: '100%',
+        width: '90%',
+        borderBottomWidth: 1
     },
     select: {
         height: 60,
         width: '100%',
-        borderRadius: 30,
-        backgroundColor: '#FED9B7',
-        color: '#4A4A4A',
+        // borderRadius: 30,
+        // backgroundColor: '#FED9B7',
+        color: '#B5B5B5',
         paddingHorizontal: 15,
         marginBottom: 15,
-        borderColor: '#FED9B7'
+        // borderColor: '#FED9B7',
+
     },
 });
 

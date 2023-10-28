@@ -89,7 +89,7 @@ const CadastroProduto = ({ route }) => {
         <Container>
             <Header>
                 <BtnVoltar />
-                <CustomViewName>Cadastrar Produtos</CustomViewName>
+                <CustomViewName>Adicionar Produto</CustomViewName>
             </Header>
 
             <Formulario>
@@ -98,15 +98,17 @@ const CadastroProduto = ({ route }) => {
                     value={codigoProdutoField}
                     onChangeText={t => setCodigoProdutoField(t)}
                 />
+
                 <FormularioInput
                     placeholder="Nome"
                     value={nomeProdutoField}
                     onChangeText={t => setNomeProdutoField(t)}
                 />
 
-                <FormularioSelect
-                    selectedValue={categoriaProdutoField}
-                    onValueChange={setCategoriaProdutoField}
+                <FormularioInput
+                    placeholder="Quantidade"
+                    value={quantidadeProdutoField}
+                    onChangeText={t => setQuantidadeProdutoField(t)}
                 />
 
                 <FormularioInput
@@ -114,24 +116,22 @@ const CadastroProduto = ({ route }) => {
                     value={datavalidadeProdutoField}
                     onChangeText={t => setDatavalidadeProdutoField(t)}
                 />
+
                 <FormularioInput
                     placeholder="Preço"
                     value={precoProdutoField}
                     onChangeText={t => setPrecoProdutoField(t)}
                 />
-                <FormularioInput
-                    placeholder="Quantidade"
-                    value={quantidadeProdutoField}
-                    onChangeText={t => setQuantidadeProdutoField(t)}
-                />
 
+                <FormularioSelect
+                    selectedValue={categoriaProdutoField}
+                    onValueChange={setCategoriaProdutoField}
+                />
             </Formulario>
 
             <CustomButton onPress={handleSalvarClick}>
                 <CustomButtonText>Salvar</CustomButtonText>
             </CustomButton>
-
-
         </Container>
 
     )

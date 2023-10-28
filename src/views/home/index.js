@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { View } from "react-native";
-import { Container, Header, Cards, Card, CustomCardText } from "./styles";
+import { Container, Header, Cards, Card, CustomCardText, CustonIcon } from "./styles";
 import { AntDesign } from '@expo/vector-icons';
 
 
@@ -19,6 +19,10 @@ const Home = () => {
         console.log('Ir para a tela de cadastro de produtos');
         navigation.navigate('CadastroProduto', { produto: {} });
     }
+    const handleVencidosClick = () => {
+        console.log('Ir para a tela de produtos vencidos');
+        navigation.navigate('ListaProduto', { vencido: true });
+    }
 
     return (
         <Container>
@@ -33,8 +37,16 @@ const Home = () => {
 
             <Cards>
                 <Card onPress={handleCadastrarClick}>
-                    <CustomCardText>Cadastrar Produto</CustomCardText>
-                    <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
+                    <CustomCardText>Cadastrar produto</CustomCardText>
+                    <CustonIcon>
+                        <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
+                    </CustonIcon>
+                </Card>
+                <Card onPress={handleVencidosClick}>
+                    <CustomCardText>Vencidos</CustomCardText>
+                    <CustonIcon>
+                        <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
+                    </CustonIcon>
                 </Card>
 
             </Cards>

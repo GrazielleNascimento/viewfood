@@ -3,20 +3,22 @@ import styled from 'styled-components/native'
 import { AntDesign } from '@expo/vector-icons';
 
 const InputArea = styled.View`
-    width: 100%;
+    width: 90%;
     height: 60px;
-    background-color: #FED9B7;
+    // background-color: #FED9B7;
+
     flex-direction: row;
-    border-radius: 30px;
-    padding-left: 15px;
+    // border-radius: 30px;
+    padding-left: 10px;
     align-items: center;
     margin-bottom: 15px;
+    border-bottom-width: 1px;
 `
 const Input = styled.TextInput`
     flex: 1;
-    font-size: 16px;
-    color: #4A4A4A;
-    margin-left: 10px;
+    font-size: 20px;
+    color: #B5B5B5;
+    // margin-left: 10px;
 `
 
 export default ({ placeholder, value, onChangeText, }) => {

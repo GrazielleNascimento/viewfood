@@ -16,6 +16,7 @@ export default {
         const json = await req.json()
         return json
     },
+
     cadastrarUsuario: async (nome, email, senha) => {
         const req = await fetch(`${BASE_URL}/usuario/novo`, {
             method: 'POST',
@@ -29,6 +30,7 @@ export default {
         const json = await req.json()
         return json
     },
+
     cadastrarProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
         const req = await fetch(`${BASE_URL}/produto/novo`, {
             method: 'POST',
@@ -42,6 +44,7 @@ export default {
         const json = await req.json()
         return json
     },
+
     getProdutos: async () => {
         const req = await fetch(`${BASE_URL}/produto/`, {
             method: 'GET',
@@ -53,8 +56,9 @@ export default {
         const json = await req.json()
         return json
     },
+
     getProduto: async (codigo) => {
-        const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
+        const req = await fetch(`${BASE_URL}/produto/codigo/${codigo}`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
@@ -64,6 +68,19 @@ export default {
         const json = await req.json()
         return json
     },
+
+    getProdutoVencido: async () => {
+        const req = await fetch(`${BASE_URL}/produto/vencido`, {
+            method: 'GET',
+            headers: {
+                Accepet: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        const json = await req.json()
+        return json
+    },
+
     atualizaProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
         const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
             method: 'PUT',
@@ -77,6 +94,7 @@ export default {
         const json = await req.json()
         return json
     },
+
     deletaProduto: async (codigo) => {
         const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
             method: 'DELETE',

@@ -8,7 +8,7 @@ const InputArea = styled.View`
     height: 60px;
     background-color: #FED9B7;
     flex-direction: row;
-    border-radius: 30px;
+    border-radius: 5px;
     padding-left: 15px;
     align-items: center;
     margin-t
@@ -16,7 +16,7 @@ const InputArea = styled.View`
 `
 const Input = styled.TextInput`
     flex: 1;
-    font-size: 16px;
+    font-size: 20px;
     color: #4A4A4A;
     margin-left: 10px;
     margin-right: 10px

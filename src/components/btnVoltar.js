@@ -19,6 +19,11 @@ font-size: 14px;
 color: #000000;
 font-weight: bold;
 `
+const CustonIcon = styled.View`
+border-radius: 5px;
+background-color: #D9D9D9;
+`
+
 
 const BtnVoltar = () => {
 
@@ -31,8 +36,9 @@ const BtnVoltar = () => {
 
     return (
         <Card onPress={handleVoltarClick}>
-            <AntDesign name={"arrowleft"} size={40} color="#4A4A4A" />
-
+            <CustonIcon>
+                <AntDesign name={"arrowleft"} size={40} color="#4A4A4A" />
+            </CustonIcon>
         </Card>
     )
 }

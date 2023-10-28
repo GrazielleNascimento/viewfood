@@ -40,12 +40,33 @@ const ListaProduto = () => {
         }
     }
 
+    const getProdutoVencido = async () => {
+        try {
+            let res = await ApiService.getProdutoVencido();
+            console.log(res)
+
+            setProdutos(res || []);
+
+            console.log(res);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
     useEffect(() => {
+
         if (route.params && route.params.codigo) {
-            getProdutos(route.params.codigo)
+            console.log(route.params.codigo);
+            getProdutos(route.params.codigo);
+
+        } else if (route.params && route.params.vencido) {
+            console.log(route.params.vencido);
+            getProdutoVencido();
+
         } else {
             getProdutos();
         }
+
     }, [route.params]);
 
     const navegateToAtualizaProduto = (produto) => {
