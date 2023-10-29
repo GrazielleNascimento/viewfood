@@ -3,11 +3,14 @@ import React, { useState } from "react";
 import { View } from "react-native";
 import { Container, Header, Cards, Card, CustomCardText, CustonIcon } from "./styles";
 import { AntDesign } from '@expo/vector-icons';
-
+import { ScrollView } from "react-native-gesture-handler";
 
 // navegacao
 import { useNavigation } from "@react-navigation/native";
+
+// componenentes
 import BuscaInput from "../../components/BuscaInput";
+import { HorizontalCard, CardBackgroundImage, HorizontalScroll } from "../listaProduto/styles";
 
 const Home = () => {
 
@@ -50,6 +53,31 @@ const Home = () => {
                 </Card>
 
             </Cards>
+
+            <HorizontalScroll>
+
+                <ScrollView horizontal={true}>
+                    Carnes
+                    <HorizontalCard>
+                        <CardBackgroundImage source={require('../../../assets/categorias/carne.png')}></CardBackgroundImage>
+                    </HorizontalCard>
+                    <HorizontalCard>
+                        teste
+                    </HorizontalCard>
+                    <HorizontalCard>
+                        teste
+                    </HorizontalCard>
+                    <HorizontalCard>
+                        teste
+                    </HorizontalCard>
+                    <HorizontalCard>
+                        teste
+                    </HorizontalCard>
+                    <HorizontalCard>
+                        teste
+                    </HorizontalCard>
+                </ScrollView>
+            </HorizontalScroll>
 
 
         </Container>

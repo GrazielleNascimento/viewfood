@@ -41,3 +41,25 @@ margin: 5px;
 padding-left: 10px;
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `
+
+export const HorizontalScroll = styled.View`
+height: 100px;
+margin-top: 100px;
+`
+
+export const HorizontalCard = styled.TouchableOpacity`
+width: 80px;
+height: 90px;
+margin-left: 10px;
+margin-right: 10px;
+background-color: #123456;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+margin-bottom: 10px;
+align-items: center;
+`
+
+export const CardBackgroundImage = styled.ImageBackground`
+width: 100%;
+height: 100%;
+`
