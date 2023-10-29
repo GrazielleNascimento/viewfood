@@ -1,12 +1,10 @@
 # View Food
 
-* Trabalho da disciplina de Mobile no curso de ADS da [Fatec Itu](https://fatecitu.edu.br/portal/cursos/analise-e-desenvolvimento-de-sistemas/)
-* App React-Native/Expo para constrole de produtos alimentícios. O app é capaz de cadastrar e validar usuários bem como realizar o CRUD completo dos produtos.
-* [View Food Backend NodeJS API](https://github.com/Grazielle127/viewfood-backend) para requisições ao banco de integrado ao MongoDB
+####  Trabalho de Graduação do curso de Análise e Desenvolvimento de Sistemas da [Fatec Itu](https://fatecitu.edu.br/portal/cursos/analise-e-desenvolvimento-de-sistemas/)
 
-## :books: Informações Gerais
-- React [useState hook](https://reactjs.org/docs/hooks-state.html) utilizado para controlar os dados dos usuários e dos produtos.
-- React [useEffect hook](https://reactjs.org/docs/hooks-effect.html) utilizado para carregar as telas com as informações dos produtos.
+* O aplicativo oferece praticidade e agilidade no controle de produtos alimentícios através de seu cadastro e gerenciamento.
+* Aplicativo React-Native/Expo. 
+* [View Food Backend](https://github.com/Grazielle127/viewfood-backend) NodeJS API REST para requisições ao banco ao MongoDB.
 
 ## :camera: Screenshots
 ![Login](./assets/ScreenshotLogin.png) ![Cadastro de Usuário](./assets/ScreenshotCadastroUsuarios.png)
@@ -25,5 +23,11 @@
 * Execute `npm i -g expo-cli` para instalar o Expo CLI globalmente
 * Rode `expo start` para iniciar a aplicação expo localmente
 
+## :books: Informações Gerais
+- React [useState hook](https://reactjs.org/docs/hooks-state.html) utilizado para controlar os dados dos usuários e dos produtos.
+- React [useEffect hook](https://reactjs.org/docs/hooks-effect.html) utilizado para carregar as telas com as informações dos produtos.
+
+
 ## :point_right: Integrantes
-* [Grazielle Nascimento Ferreira](https://github.com/Grazielle127)
+* [Grazielle Nascimento Ferreira](https://github.com/GrazielleNascimento)
+* [Paulo Henrique Vieira Mujollo](https://github.com/PauloMujollo)
