@@ -1,13 +1,18 @@
 import React, { useState, useContext } from 'react'
+
+// components
 import {
     Container, InputArea, CustomButton, CustomButtonText,
     SignMessageButton, SignMessageButtonText, SignMessageButtonTextBold, Logo
 } from './Styles'
-import { useNavigation } from '@react-navigation/native'
-
 import ViewFood from '../../components/icons/ViewFood'
 import SignInput from '../../components/SignInput'
-import ApiService from '../../service/ApiService'
+
+// navegacao
+import { useNavigation } from '@react-navigation/native'
+
+// service
+import UsuarioApiService from '../../service/UsuarioApiService'
 
 export default () => {
     const navigation = useNavigation()
@@ -26,10 +31,10 @@ export default () => {
     const handleCadastrarClick = async () => {
         // cadastra o usuario no banco e volta para o login
         if (nomeField && senhaField && emailField) {
-            let res = await ApiService.cadastrarUsuario(nomeField, emailField, senhaField)
+            let res = await UsuarioApiService.cadastrarUsuario(nomeField, emailField, senhaField)
             if (res) {
 
-                alert('✅Usuário criado com sucesso. Efetue o login')
+                alert('✅ Usuário criado com sucesso. Efetue o login')
                 navigation.reset({
                     routes: [{ name: 'Login' }]
                 })

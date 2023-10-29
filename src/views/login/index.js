@@ -14,7 +14,9 @@ import SignInput from '../../components/SignInput';
 
 // navegacao
 import { useNavigation } from "@react-navigation/native";
-import ApiService from "../../service/ApiService.js";
+
+// service
+import UsuarioApiService from "../../service/UsuarioApiService.js";
 
 
 
@@ -27,7 +29,7 @@ const Login = () => {
 
     const handleLoginClick = async () => {
         if (emailField && senhaField) {
-            let res = await ApiService.login(emailField, senhaField)
+            let res = await UsuarioApiService.login(emailField, senhaField)
             console.log(res)
 
             if (res.message === 'usuario cadastrado!') {

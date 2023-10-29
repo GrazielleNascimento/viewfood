@@ -3,8 +3,6 @@ import { ScrollView } from 'react-native'
 import { Container, Header, CustomViewName, Cards } from "./styles";
 import { useRoute } from '@react-navigation/native';
 
-
-
 // navegacao
 import { useNavigation } from "@react-navigation/native";
 import BtnVoltar from "../../components/btnVoltar";
@@ -13,7 +11,7 @@ import BtnVoltar from "../../components/btnVoltar";
 import ProdutoCard from "../../components/ProdutoCard";
 
 // api
-import ApiService from "../../service/ApiService";
+import ProdutoApiService from "../../service/ProdutoApiService";
 
 
 
@@ -27,10 +25,10 @@ const ListaProduto = () => {
         try {
             let res
             if (codigo) {
-                res = await ApiService.getProduto(codigo);
+                res = await ProdutoApiService.getProduto(codigo);
                 setProdutos(res ? [res] : []); // Transforma o objeto em um array
             } else {
-                res = await ApiService.getProdutos();
+                res = await ProdutoApiService.getProdutos();
                 setProdutos(res || []); // Define um array vazio caso não haja produtos
             }
 
@@ -42,7 +40,7 @@ const ListaProduto = () => {
 
     const getProdutoVencido = async () => {
         try {
-            let res = await ApiService.getProdutoVencido();
+            let res = await ProdutoApiService.getProdutoVencido();
             console.log(res)
 
             setProdutos(res || []);
@@ -97,7 +95,6 @@ const ListaProduto = () => {
                 </Cards>
             </ScrollView>
         </Container>
-
     )
 }
 

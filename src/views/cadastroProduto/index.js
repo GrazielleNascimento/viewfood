@@ -10,7 +10,7 @@ import FormularioInput from "../../components/FormularioInput";
 import FormularioSelect from "../../components/FormularioSelect";
 
 // api
-import ApiService from "../../service/ApiService";
+import ProdutoApiService from "../../service/ProdutoApiService";
 
 const CadastroProduto = ({ route }) => {
 
@@ -38,7 +38,7 @@ const CadastroProduto = ({ route }) => {
             // atualiza o produto se vier da rota
             if (codigoProdutoField && nomeProdutoField && quantidadeProdutoField && datavalidadeProdutoField && precoProdutoField && categoriaProdutoField) {
 
-                let res = await ApiService.atualizaProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
+                let res = await ProdutoApiService.atualizaProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
                 if (res.message === 'Produto atualizado com sucesso!') {
                     alert('✅Produto atualizado com sucesso!')
                     navigation.reset({
@@ -56,7 +56,7 @@ const CadastroProduto = ({ route }) => {
             if (codigoProdutoField && nomeProdutoField && quantidadeProdutoField && datavalidadeProdutoField && precoProdutoField && categoriaProdutoField) {
 
 
-                let res = await ApiService.cadastrarProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
+                let res = await ProdutoApiService.cadastrarProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
                 if (res.message === 'novo produto cadastrado com sucesso!') {
 
                     alert('✅Produto cadastrado com sucesso!')

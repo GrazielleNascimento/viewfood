@@ -5,7 +5,7 @@ import styled from 'styled-components/native'
 import { useNavigation } from "@react-navigation/native";
 
 // api
-import ApiService from "../service/ApiService";
+import ApiService from "../service/ProdutoApiService";
 
 const Container = styled.TouchableOpacity`
     width: 100%;
