@@ -41,11 +41,18 @@ const ListaProduto = () => {
     const getProdutoVencido = async () => {
         try {
             let res = await ProdutoApiService.getProdutoVencido();
-            console.log(res)
-
-            setProdutos(res || []);
-
             console.log(res);
+            setProdutos(res || []);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    const getProdutoCategoria = async (categoria) => {
+        try {
+            let res = await ProdutoApiService.getProdutoCategoria(categoria)
+            console.log(res);
+            setProdutos(res || []);
         } catch (error) {
             console.error(error);
         }
@@ -61,7 +68,11 @@ const ListaProduto = () => {
             console.log(route.params.vencido);
             getProdutoVencido();
 
-        } else {
+        } else if (route.params && route.params.categoria) {
+            console.log(route.params.categoria);
+            getProdutoCategoria(route.params.categoria);
+        }
+        else {
             getProdutos();
         }
 

@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 
-import { View } from "react-native";
-import { Container, Header, Cards, Card, CustomCardText, CustonIcon } from "./styles";
+import { View, Text } from "react-native";
+import {
+    Container, Header, Cards, Card, CustomCardText, CustonIcon,
+    HorizontalCard, CardBackgroundImage, Categorias, CategoriaTitle,
+    CustonHorizontalCardText
+} from "./styles";
 import { AntDesign } from '@expo/vector-icons';
 import { ScrollView } from "react-native-gesture-handler";
 
@@ -10,7 +14,6 @@ import { useNavigation } from "@react-navigation/native";
 
 // componenentes
 import BuscaInput from "../../components/BuscaInput";
-import { HorizontalCard, CardBackgroundImage, HorizontalScroll } from "../listaProduto/styles";
 
 const Home = () => {
 
@@ -21,11 +24,17 @@ const Home = () => {
     const handleCadastrarClick = () => {
         console.log('Ir para a tela de cadastro de produtos');
         navigation.navigate('CadastroProduto', { produto: {} });
-    }
+    };
+
     const handleVencidosClick = () => {
         console.log('Ir para a tela de produtos vencidos');
         navigation.navigate('ListaProduto', { vencido: true });
-    }
+    };
+
+    const handCategoriaClick = (categoriaSelecionada) => {
+        console.log("Ir para a tela de lista de produtos da categoria");
+        navigation.navigate('ListaProduto', { categoria: categoriaSelecionada });
+    };
 
     return (
         <Container>
@@ -51,33 +60,48 @@ const Home = () => {
                         <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
                     </CustonIcon>
                 </Card>
-
             </Cards>
 
-            <HorizontalScroll>
+
+            <Categorias>
+                <CategoriaTitle>Categorias</CategoriaTitle>
 
                 <ScrollView horizontal={true}>
-                    Carnes
-                    <HorizontalCard>
-                        <CardBackgroundImage source={require('../../../assets/categorias/carne.png')}></CardBackgroundImage>
+
+                    <HorizontalCard onPress={() => handCategoriaClick('Carne')}>
+                        <CustonHorizontalCardText>Carnes</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Carne.png')} />
                     </HorizontalCard>
-                    <HorizontalCard>
-                        teste
+                    <HorizontalCard onPress={() => handCategoriaClick('Verdura')}>
+                        <CustonHorizontalCardText>Verdura</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Verdura.png')} />
                     </HorizontalCard>
-                    <HorizontalCard>
-                        teste
+                    <HorizontalCard onPress={() => handCategoriaClick('Legumes')}>
+                        <CustonHorizontalCardText>Legumes</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Legumes.png')} />
                     </HorizontalCard>
-                    <HorizontalCard>
-                        teste
+                    <HorizontalCard onPress={() => handCategoriaClick('Bebida')}>
+                        <CustonHorizontalCardText>Bebidas</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Bebida.png')} />
                     </HorizontalCard>
-                    <HorizontalCard>
-                        teste
+                    <HorizontalCard onPress={() => handCategoriaClick('Fruta')}>
+                        <CustonHorizontalCardText>Frutas</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Fruta.png')} />
                     </HorizontalCard>
-                    <HorizontalCard>
-                        teste
+                    <HorizontalCard onPress={() => handCategoriaClick('Frios')}>
+                        <CustonHorizontalCardText>Frios</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Frios.png')} />
+                    </HorizontalCard>
+                    <HorizontalCard onPress={() => handCategoriaClick('Padaria')}>
+                        <CustonHorizontalCardText>Padaria</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Padaria.png')} />
+                    </HorizontalCard>
+                    <HorizontalCard onPress={() => handCategoriaClick('Enlatado')}>
+                        <CustonHorizontalCardText>Enlatados</CustonHorizontalCardText>
+                        <CardBackgroundImage source={require('../../../assets/categorias/Enlatado.png')} />
                     </HorizontalCard>
                 </ScrollView>
-            </HorizontalScroll>
+            </Categorias>
 
 
         </Container>

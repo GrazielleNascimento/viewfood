@@ -38,9 +38,10 @@ box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 `
 export const CustomCardText = styled.Text`
 font-size: 20px;
+flex-direction: row;
 color: #000000;
 font-weight: bold;
-margin-right: 140px
+margin-right: 140px;
 width: 80%
 `
 
@@ -49,4 +50,47 @@ border-radius: 5px;
 background-color: #D9D9D9;
 align-items: flex-end;
 justify-content: flex-end;
+`
+
+export const Categorias = styled.View`
+height: 250px;
+margin-top: 10px;
+margin-bottom: 20px;
+`
+
+export const HorizontalCard = styled.TouchableOpacity`
+width: 80px;
+height: 90px;
+flex-direction: column;
+margin-left: 10px;
+margin-right: 10px;
+align-items: center;
+flex
+`
+
+export const CardBackgroundImage = styled.ImageBackground`
+width: 80px;
+height: 90px;
+align-items: center;
+// background-color: #123456;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+border-radius: 5px;
+align-items: center;
+`
+
+export const CategoriaTitle = styled.Text`
+font-size: 20px;
+margin-top: 80px;
+margin-left: 10px;
+margin-bottom: 10px
+
+color: #000000;
+font-weight: bold;
+width: 80%
+`
+
+export const CustonHorizontalCardText = styled.Text`
+color: #000000;
+font-weight: bold;
+
 `
