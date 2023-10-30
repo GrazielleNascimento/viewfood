@@ -12,10 +12,9 @@ padding: 10px
 `
 
 export const Cards = styled.View`
-flex: 1;
 flex-direction: column;
 align-items: center;
-margin-top: 100px;
+margin-top: 50px;
 width: 100%
 align-items: center;
 justify-content: center;
@@ -53,8 +52,8 @@ justify-content: flex-end;
 `
 
 export const Categorias = styled.View`
-height: 250px;
-margin-top: 10px;
+height: 160px;
+margin-top: 30px
 margin-bottom: 20px;
 `
 
@@ -72,7 +71,6 @@ export const CardBackgroundImage = styled.ImageBackground`
 width: 80px;
 height: 90px;
 align-items: center;
-// background-color: #123456;
 box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 border-radius: 5px;
 align-items: center;
@@ -80,7 +78,6 @@ align-items: center;
 
 export const CategoriaTitle = styled.Text`
 font-size: 20px;
-margin-top: 80px;
 margin-left: 10px;
 margin-bottom: 10px
 
@@ -92,5 +89,4 @@ width: 80%
 export const CustonHorizontalCardText = styled.Text`
 color: #000000;
 font-weight: bold;
-
 `
