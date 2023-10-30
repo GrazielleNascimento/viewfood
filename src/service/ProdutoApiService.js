@@ -53,6 +53,18 @@ export default {
         return json
     },
 
+    getProdutoCategoria: async (categoria) => {
+        const req = await fetch(`${BASE_URL}/produto/categoria/${categoria}`, {
+            method: 'GET',
+            headers: {
+                Accepet: 'application/json',
+                'Content-Type': 'application/json'
+            }
+        });
+        const json = await req.json();
+        return json;
+    },
+
     atualizaProduto: async (codigo, nome, quantidade, dataValidade, preco, categoria) => {
         const req = await fetch(`${BASE_URL}/produto/${codigo}`, {
             method: 'PUT',
