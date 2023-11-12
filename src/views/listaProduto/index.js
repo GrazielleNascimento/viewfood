@@ -32,7 +32,6 @@ const ListaProduto = () => {
                 setProdutos(res || []); // Define um array vazio caso não haja produtos
             }
 
-            console.log(res)
         } catch (error) {
             console.error(error);
         }
@@ -41,7 +40,6 @@ const ListaProduto = () => {
     const getProdutoVencido = async () => {
         try {
             let res = await ProdutoApiService.getProdutoVencido();
-            console.log(res);
             setProdutos(res || []);
         } catch (error) {
             console.error(error);
@@ -51,7 +49,6 @@ const ListaProduto = () => {
     const getProdutoCategoria = async (categoria) => {
         try {
             let res = await ProdutoApiService.getProdutoCategoria(categoria)
-            console.log(res);
             setProdutos(res || []);
         } catch (error) {
             console.error(error);
@@ -61,15 +58,12 @@ const ListaProduto = () => {
     useEffect(() => {
 
         if (route.params && route.params.codigo) {
-            console.log(route.params.codigo);
             getProdutos(route.params.codigo);
 
         } else if (route.params && route.params.vencido) {
-            console.log(route.params.vencido);
             getProdutoVencido();
 
         } else if (route.params && route.params.categoria) {
-            console.log(route.params.categoria);
             getProdutoCategoria(route.params.categoria);
         }
         else {

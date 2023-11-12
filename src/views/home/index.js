@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 
-import { View, Text } from "react-native";
 import {
     Container, Header, Cards, Card, CustomCardText, CustonIcon,
     HorizontalCard, CardBackgroundImage, Categorias, CategoriaTitle,
-    CustonHorizontalCardText
+    CustonHorizontalCardText, CategoriaHeader
 } from "./styles";
 import { AntDesign } from '@expo/vector-icons';
 import { ScrollView } from "react-native-gesture-handler";
@@ -14,6 +13,8 @@ import { useNavigation } from "@react-navigation/native";
 
 // componenentes
 import BuscaInput from "../../components/BuscaInput";
+import BtnNotificacao from "../../components/BtnNotificacao";
+import BtnConfiguracao from "../../components/BtnConfiguracoes";
 
 const Home = () => {
 
@@ -22,17 +23,14 @@ const Home = () => {
     const [codigoField, setCodigoField] = useState('');
 
     const handleCadastrarClick = () => {
-        console.log('Ir para a tela de cadastro de produtos');
         navigation.navigate('CadastroProduto', { produto: {} });
     };
 
     const handleVencidosClick = () => {
-        console.log('Ir para a tela de produtos vencidos');
         navigation.navigate('ListaProduto', { vencido: true });
     };
 
     const handCategoriaClick = (categoriaSelecionada) => {
-        console.log("Ir para a tela de lista de produtos da categoria");
         navigation.navigate('ListaProduto', { categoria: categoriaSelecionada });
     };
 
@@ -41,30 +39,46 @@ const Home = () => {
             <Header >
                 <BuscaInput
                     icon='search1'
-                    placeholder='Busque pelo codigo do produto'
+                    placeholder='Procurar'
+                    placeholderTextColor="#C4C4C4"
                     value={codigoField}
                     onChangeText={t => setCodigoField(t)}
+                />
+                <BtnNotificacao
+                    icon='bells'
+                />
+                <BtnConfiguracao
+                    icon='bars'
                 />
             </Header>
 
             <Cards>
                 <Card onPress={handleCadastrarClick}>
+                    <CustonIcon background="#ffff">
+                        <AntDesign name={"pluscircleo"} size={35} color="#4A4A4A" />
+                    </CustonIcon>
                     <CustomCardText>Cadastrar produto</CustomCardText>
                     <CustonIcon>
-                        <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
+                        <AntDesign name={"right"} size={35} color="#4A4A4A" />
                     </CustonIcon>
                 </Card>
                 <Card onPress={handleVencidosClick}>
+                    <CustonIcon background="#ffff">
+                        <AntDesign name={"exclamationcircleo"} size={35} color="#4A4A4A" />
+                    </CustonIcon>
                     <CustomCardText>Vencidos</CustomCardText>
                     <CustonIcon>
-                        <AntDesign name={"arrowright"} size={40} color="#4A4A4A" />
+                        <AntDesign name={"right"} size={35} color="#4A4A4A" />
                     </CustonIcon>
                 </Card>
             </Cards>
 
 
             <Categorias>
-                <CategoriaTitle>Categorias</CategoriaTitle>
+                <CategoriaHeader>
+                    <AntDesign name={"appstore-o"} size={30} color="#4A4A4A" />
+                    <CategoriaTitle>Categorias</CategoriaTitle>
+                </CategoriaHeader>
 
                 <ScrollView horizontal={true}>
 

@@ -7,7 +7,7 @@ import Login from '../views/login/index.js';
 import CadastroUsuario from '../views/cadastroUsuario/index.js';
 import Home from '../views/home/index.js';
 import CadastroProduto from '../views/cadastroProduto/index.js';
-import ListaProduto from '../views/listaProduto/index.js'
+import ListaProduto from '../views/listaProduto/index.js';
 
 const Stack = createStackNavigator();
 
@@ -16,7 +16,7 @@ const NavigationStack = () => {
     return (
         <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Login"
+                initialRouteName="Home"
                 screenOptions={{ headerShown: false }} >
 
                 <Stack.Screen name="Login" component={Login} />

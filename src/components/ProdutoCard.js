@@ -39,16 +39,21 @@ const DeleteButton = styled.TouchableOpacity`
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: #FF5151;
+    // background-color: #FF5151;
     border-radius: 5px;
-    width: 45px;
-    height: 20px
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    width: 25px;
+    height: 25px
 `
 
-const DeleteButtonText = styled.Text`
-    color: black;
+const DeleteIcon = styled.ImageBackground`
+    width: 16px;
+    height: 16px;
+    align-items: center;
+    flex-direction: row;
+    // box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    // border-radius: 5px;
 `
 
 
@@ -59,7 +64,6 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria,
     const handleDeleteClick = async () => {
         let res = await ApiService.deletaProduto(codigo)
         if (res.message === 'O produto foi removido com sucesso!') {
-            alert('✅Produto deletado com sucesso!')
             navigation.reset({
                 routes: [{ name: 'Home' }]
             })
@@ -81,7 +85,7 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria,
                 <Informacao>Data de Validade: {dataValidade}</Informacao>
             </InfoArea>
             <DeleteButton onPress={handleDeleteClick}>
-                <DeleteButtonText>Excluir</DeleteButtonText>
+                <DeleteIcon source={require('../../assets/icons/DeleteIcon.png')} />
             </DeleteButton>
         </Container>
 
