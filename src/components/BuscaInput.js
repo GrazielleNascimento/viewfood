@@ -21,7 +21,7 @@ font-size: 20px;
 color: #4A4A4A;
 margin-left: 10px;
 margin-right: 10px;
-placeholderTextColor= #c4c4c4;
+placeholderTextColor: #c4c4c4;
 `
 const CustonButton = styled.TouchableOpacity`
 width: 50px;
@@ -36,10 +36,8 @@ export default ({ icon, placeholder, value, onChangeText, codigo }) => {
 
     const handleBuscarClick = () => {
         if (value) {
-            console.log('Ir para a tela de lista de produto especifico');
             navigation.navigate('ListaProduto', { codigo: value });
         } else {
-            console.log('Ir para a tela de lista de produtos');
             navigation.navigate('ListaProduto');
         }
     }

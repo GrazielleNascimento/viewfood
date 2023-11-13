@@ -6,7 +6,6 @@ const InputArea = styled.View`
     width: 90%;
     height: 60px;
     // background-color: #FED9B7;
-
     flex-direction: row;
     // border-radius: 30px;
     padding-left: 10px;
@@ -17,7 +16,8 @@ const InputArea = styled.View`
 const Input = styled.TextInput`
     flex: 1;
     font-size: 20px;
-    color: #B5B5B5;
+    color: #000;
+    placeholderTextColor: #c4c4c4;
     // margin-left: 10px;
 `
 
@@ -26,7 +26,6 @@ export default ({ placeholder, value, onChangeText, }) => {
         <InputArea>
             <Input
                 placeholder={placeholder}
-                placeholderTextColor="#4A4A4A"
                 value={value}
                 onChangeText={onChangeText}
             />

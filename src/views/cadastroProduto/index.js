@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import { View, Picker } from "react-native";
 import { Container, Header, CustomViewName, Formulario, CustomButton, CustomButtonText } from "./styles";
 
 // navegacao
@@ -27,12 +26,6 @@ const CadastroProduto = ({ route }) => {
     console.log(produto);
 
     const handleSalvarClick = async () => {
-        // console.log(codigoProdutoField);
-        // console.log(nomeProdutoField);
-        // console.log(categoriaProdutoField);
-        // console.log(datavalidadeProdutoField);
-        // console.log(precoProdutoField);
-        // console.log(quantidadeProdutoField);
 
         if (produto.codigo) {
             // atualiza o produto se vier da rota
@@ -40,7 +33,6 @@ const CadastroProduto = ({ route }) => {
 
                 let res = await ProdutoApiService.atualizaProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
                 if (res.message === 'Produto atualizado com sucesso!') {
-                    alert('✅Produto atualizado com sucesso!')
                     navigation.reset({
                         routes: [{ name: 'Home' }]
                     })
@@ -58,8 +50,6 @@ const CadastroProduto = ({ route }) => {
 
                 let res = await ProdutoApiService.cadastrarProduto(codigoProdutoField, nomeProdutoField, quantidadeProdutoField, datavalidadeProdutoField, precoProdutoField, categoriaProdutoField)
                 if (res.message === 'novo produto cadastrado com sucesso!') {
-
-                    alert('✅Produto cadastrado com sucesso!')
                     navigation.reset({
                         routes: [{ name: 'Home' }]
                     })
@@ -124,7 +114,7 @@ const CadastroProduto = ({ route }) => {
                 />
 
                 <FormularioSelect
-                    selectedValue={categoriaProdutoField}
+                    selectedaCategoria={categoriaProdutoField}
                     onValueChange={setCategoriaProdutoField}
                 />
             </Formulario>

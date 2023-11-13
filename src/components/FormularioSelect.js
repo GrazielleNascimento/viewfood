@@ -1,25 +1,31 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Picker } from 'react-native';
+import { View, StyleSheet } from 'react-native';
+import { Picker } from '@react-native-picker/picker';
 
-const FormularioSelect = ({ selectedQuantidade, onValueChange }) => {
-    const [quantidade, setQuantidade] = useState('');
+const FormularioSelect = ({ selectedCategoria, onValueChange }) => {
+    const [categoria, setCategoria] = useState('');
 
-    const handleQuantidadeChange = (selectedQuantidade) => {
-        setQuantidade(selectedQuantidade);
+    const handleCategoriaChange = (selectedCategoria) => {
+        setCategoria(selectedCategoria);
+        onValueChange(selectedCategoria);
     };
 
     return (
         <View style={styles.container}>
             <Picker
                 style={styles.select}
-                selectedValue={selectedQuantidade}
-                onValueChange={onValueChange}
+                selectedValue={categoria}
+                onValueChange={handleCategoriaChange}
             >
                 <Picker.Item label="Selecione a categoria" value="" />
                 <Picker.Item label="Carne" value="Carne" />
-                <Picker.Item label="Fruta" value="Fruta" />
-                <Picker.Item label="Legumes" value="Legumes" />
                 <Picker.Item label="Verdura" value="Verdura" />
+                <Picker.Item label="Legumes" value="Legumes" />
+                <Picker.Item label="Bebida" value="Bebida" />
+                <Picker.Item label="Fruta" value="Fruta" />
+                <Picker.Item label="Frios" value="Frios" />
+                <Picker.Item label="Padaria" value="Padaria" />
+                <Picker.Item label="Enlatado" value="Enlatado" />
             </Picker>
         </View>
     );
@@ -27,23 +33,21 @@ const FormularioSelect = ({ selectedQuantidade, onValueChange }) => {
 
 const styles = StyleSheet.create({
     container: {
-
+        height: '100px',
         marginBottom: '5px',
-        marginTop: '5px',
+        marginTop: '50px',
         width: '90%',
-        borderBottomWidth: 1
+        borderBottomWidth: 1,
     },
     select: {
         height: 60,
         width: '100%',
-        // borderRadius: 30,
-        // backgroundColor: '#FED9B7',
-        color: '#B5B5B5',
+        color: '#000',
         paddingHorizontal: 15,
         marginBottom: 15,
-        // borderColor: '#FED9B7',
+        fontSize: '20px',
 
-    },
+    }
 });
 
 export default FormularioSelect;

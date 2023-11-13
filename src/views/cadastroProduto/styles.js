@@ -1,11 +1,15 @@
-import React from 'react'
 import styled from 'styled-components/native'
 
 export const Container = styled.SafeAreaView`
-margin-top: 50px;
+// margin-top: 50px;
+justify-content: center;
+align-itens: center;
+text-align: center;
+flex-direction: colums;
 `
 
 export const Header = styled.View`
+height: 150px;
 flex-direction: row;
 align-items: center;
 justify-content: left;
@@ -15,34 +19,39 @@ padding: 10px;
 
 export const CustomViewName = styled.Text`
 font-size: 20px;
-color: #000000;
+color: #000;
 font-weight: bold;
 margin-left: 20px;
 font-size: 25px
 `
 
 export const Formulario = styled.View`
-flex: 1;
+flex-direction: colums;
 justify-content: center;
 align-items: center;
-margin-top: 250px;
-padding: 10px
+margin-top: 0px;
+padding: 10px;
+height: 500px;
+// background-color: #777777;
 `
 
 export const CustomButton = styled.TouchableOpacity`
-height: 40px;
-width: 150px;
-background-color: #79AFFF;
-border-radius: 30px;
+height: 50px;
+width: 50%;
 justify-content: center;
 align-items: center;
-margin-top: 300px
-margin-left: 30%;
-margin-right: 50%;
-
+background-color: #79afff;
+border-radius: 5px;
+margin-top: 20px;
+margin-left: 25%;
 `
 
 export const CustomButtonText = styled.Text`
-font-size: 20px;
-color: #000000;
-`
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  align-self: center;
+  border-radius: 30px;
+  width: 100%;
+`;

@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import Style from './styles.js'
-
-import { View, Text, TextInput, Button } from 'react-native';
 
 import {
     Container, InputArea, CustomButton, CustomButtonText,
@@ -33,8 +30,6 @@ const Login = () => {
             console.log(res)
 
             if (res.message === 'usuario cadastrado!') {
-
-                alert('✅ Login efetuado com sucesso')
                 navigation.reset({
                     routes: [{ name: 'Home' }]
                 })
@@ -47,7 +42,6 @@ const Login = () => {
 
     const handleCadastroClick = () => {
         // Navegar para a tela de cadastro
-        console.log('Ir para a tela de cadastro');
         navigation.navigate('CadastroUsuario')
     };
 
