@@ -33,8 +33,6 @@ export default () => {
         if (nomeField && senhaField && emailField) {
             let res = await UsuarioApiService.cadastrarUsuario(nomeField, emailField, senhaField)
             if (res) {
-
-                alert('✅ Usuário criado com sucesso. Efetue o login')
                 navigation.reset({
                     routes: [{ name: 'Login' }]
                 })
@@ -50,9 +48,7 @@ export default () => {
 
     return (
         <Container>
-            <Logo>
-                <ViewFood />
-            </Logo>
+            <Logo source={require('../../../assets/viewfood.png')} />
             <InputArea>
                 <SignInput
                     icon="user"

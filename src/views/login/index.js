@@ -47,8 +47,9 @@ const Login = () => {
 
     return (
         <Container>
-            <Logo>
-                <ViewFood />
+            <Logo source={require('../../../assets/viewfood.png')}>
+                {/* <ViewFood /> */}
+
             </Logo>
             <InputArea>
                 <SignInput

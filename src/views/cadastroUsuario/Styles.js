@@ -7,8 +7,9 @@ flex: 1;
 justify-content: center;
 align-items: center;
 `
-export const Logo = styled.View`
-transform: scale(0.8)
+export const Logo = styled.ImageBackground`
+width: 326px;
+height: 156px;
 `
 
 export const InputArea = styled.View`
@@ -25,16 +26,18 @@ align-items: center;
 export const CustomButtonText = styled.Text`
 font-size: 20px;
 color: #FFF;
-
+font-weight: bold;
 `
 export const SignMessageButton = styled.TouchableOpacity`
 flex-direction: row;
 justify-content: center;
 margin-top: 50px;
 margin-bottom: 20px;
+box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+elevation: 4;
 `
 export const SignMessageButtonText = styled.Text`
-font-size: 16px;
+font-size: 14px;
 color: #4A4A4A;
 `
 export const SignMessageButtonTextBold = styled.Text`
