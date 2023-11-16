@@ -4,10 +4,10 @@
     "slug": "view-food",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/iconViewfood.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/splashViewfood.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
