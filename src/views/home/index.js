@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
     Container, Header, Cards, Card, CustomCardText, CustonIcon,
@@ -10,6 +10,8 @@ import { ScrollView } from "react-native-gesture-handler";
 
 // navegacao
 import { useNavigation } from "@react-navigation/native";
+import { useRoute } from '@react-navigation/native';
+
 
 // componenentes
 import BuscaInput from "../../components/BuscaInput";
@@ -18,7 +20,10 @@ import BtnConfiguracao from "../../components/BtnConfiguracoes";
 
 const Home = () => {
 
+    const [local, setLocal] = useState();
+
     const navigation = useNavigation();
+    const route = useRoute();
 
     const [codigoField, setCodigoField] = useState('');
 
@@ -33,6 +38,15 @@ const Home = () => {
     const handCategoriaClick = (categoriaSelecionada) => {
         navigation.navigate('ListaProduto', { categoria: categoriaSelecionada });
     };
+
+    // useEffect(() => {
+
+    //     setLocal(route.params.localObra);
+    //     console.log(local);
+
+    // }, [route.params]);
+
+
 
     return (
         <Container>
