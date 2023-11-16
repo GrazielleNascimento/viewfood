@@ -6,7 +6,6 @@ import {
 } from './styles';
 
 // componentes
-import ViewFood from '../../components/icons/ViewFood.js';
 import SignInput from '../../components/SignInput';
 
 // navegacao
@@ -27,11 +26,13 @@ const Login = () => {
     const handleLoginClick = async () => {
         if (emailField && senhaField) {
             let res = await UsuarioApiService.login(emailField, senhaField)
-            console.log(res)
+            console.log(res.body)
 
-            if (res.message === 'usuario cadastrado!') {
+            if (res.body.email === emailField && res.body.senha === senhaField) {
+                local = res.body.local;
+                console.log(local);
                 navigation.reset({
-                    routes: [{ name: 'Home' }]
+                    routes: [{ name: 'Home', params: { localObra: local } }]
                 })
             } else {
                 alert("Erro: " + JSON.stringify(res.errors ? res.errors[0].msg : 'Ocorreu um erro ao tanter logar'))
