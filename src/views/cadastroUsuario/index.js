@@ -5,7 +5,6 @@ import {
     Container, InputArea, CustomButton, CustomButtonText,
     SignMessageButton, SignMessageButtonText, SignMessageButtonTextBold, Logo
 } from './Styles'
-import ViewFood from '../../components/icons/ViewFood'
 import SignInput from '../../components/SignInput'
 
 // navegacao
@@ -17,9 +16,10 @@ import UsuarioApiService from '../../service/UsuarioApiService'
 export default () => {
     const navigation = useNavigation()
 
-    const [emailField, setEmailField] = useState('')
-    const [senhaField, setSenhaField] = useState('')
-    const [nomeField, setNomeField] = useState('')
+    const [emailField, setEmailField] = useState('');
+    const [senhaField, setSenhaField] = useState('');
+    const [nomeField, setNomeField] = useState('');
+    const [localField, setLocalField] = useState('');
 
     const handleLoginButtonClick = () => {
         // volta para o Login
@@ -30,8 +30,8 @@ export default () => {
 
     const handleCadastrarClick = async () => {
         // cadastra o usuario no banco e volta para o login
-        if (nomeField && senhaField && emailField) {
-            let res = await UsuarioApiService.cadastrarUsuario(nomeField, emailField, senhaField)
+        if (nomeField && localField && senhaField && emailField) {
+            let res = await UsuarioApiService.cadastrarUsuario(nomeField, localField, emailField, senhaField)
             if (res) {
                 navigation.reset({
                     routes: [{ name: 'Login' }]
@@ -55,6 +55,11 @@ export default () => {
                     placeholder="Nome Completo"
                     value={nomeField}
                     onChangeText={t => setNomeField(t)}
+                />
+                <SignInput
+                    placeholder="Local"
+                    value={localField}
+                    onChangeText={t => setLocalField(t)}
                 />
                 <SignInput
                     icon="mail"
