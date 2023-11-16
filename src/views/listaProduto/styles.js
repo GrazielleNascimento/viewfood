@@ -1,8 +1,7 @@
-import React from 'react'
 import styled from 'styled-components/native'
 
 export const Container = styled.SafeAreaView`
-
+flex: 1;
 `
 
 export const Header = styled.View`
@@ -30,7 +29,7 @@ height: 100%;
 align-items: center;
 justify-content: center;
 padding: 10px;
-background-color: #c4c4
+// background-color: #c4c4;
 `
 
 export const Card = styled.TouchableOpacity`

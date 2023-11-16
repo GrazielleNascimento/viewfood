@@ -39,8 +39,7 @@ const Home = () => {
             <Header >
                 <BuscaInput
                     icon='search1'
-                    placeholder='Procurar'
-                    placeholderTextColor="#C4C4C4"
+                    placeholder='Buscar'
                     value={codigoField}
                     onChangeText={t => setCodigoField(t)}
                 />
@@ -57,7 +56,7 @@ const Home = () => {
                     <CustonIcon background="#ffff">
                         <AntDesign name={"pluscircleo"} size={35} color="#4A4A4A" />
                     </CustonIcon>
-                    <CustomCardText>Cadastrar produto</CustomCardText>
+                    <CustomCardText>Adiconar produto</CustomCardText>
                     <CustonIcon>
                         <AntDesign name={"right"} size={35} color="#4A4A4A" />
                     </CustonIcon>
@@ -87,7 +86,7 @@ const Home = () => {
                         <CardBackgroundImage source={require('../../../assets/categorias/Carne.png')} />
                     </HorizontalCard>
                     <HorizontalCard onPress={() => handCategoriaClick('Verdura')}>
-                        <CustonHorizontalCardText>Verdura</CustonHorizontalCardText>
+                        <CustonHorizontalCardText>Verduras</CustonHorizontalCardText>
                         <CardBackgroundImage source={require('../../../assets/categorias/Verdura.png')} />
                     </HorizontalCard>
                     <HorizontalCard onPress={() => handCategoriaClick('Legumes')}>

@@ -20,8 +20,10 @@ const ListaProduto = () => {
     const navigation = useNavigation();
     const route = useRoute();
     const [produtos, setProdutos] = useState([]);
+    const [viewName, setViewName] = useState();
 
     const getProdutos = async (codigo) => {
+        setViewName('Produtos')
         try {
             let res
             if (codigo) {
@@ -38,6 +40,7 @@ const ListaProduto = () => {
     }
 
     const getProdutoVencido = async () => {
+        setViewName('Produtos Vencidos')
         try {
             let res = await ProdutoApiService.getProdutoVencido();
             setProdutos(res || []);
@@ -47,6 +50,13 @@ const ListaProduto = () => {
     }
 
     const getProdutoCategoria = async (categoria) => {
+
+        if (categoria != 'Legumes') {
+            setViewName(categoria + 's');
+        } else {
+            setViewName(categoria);
+        }
+
         try {
             let res = await ProdutoApiService.getProdutoCategoria(categoria)
             setProdutos(res || []);
@@ -80,10 +90,10 @@ const ListaProduto = () => {
         <Container>
             <Header>
                 <BtnVoltar />
-                <CustomViewName>Lista de Produtos</CustomViewName>
+                <CustomViewName>{viewName}</CustomViewName>
             </Header>
 
-            <ScrollView>
+            <ScrollView style={{ flex: 1 }}>
                 <Cards>
                     {produtos.map((produto, index) => (
                         <ProdutoCard
