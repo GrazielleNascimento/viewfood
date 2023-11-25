@@ -7,9 +7,10 @@
 * [View Food Backend](https://github.com/Grazielle127/viewfood-backend) NodeJS API REST para requisições ao banco ao MongoDB.
 
 ## :camera: Screenshots
-![Login](./assets/ScreenshotLogin.png) ![Cadastro de Usuário](./assets/ScreenshotCadastroUsuarios.png)
-![Home](./assets/ScreenshotHome.png) ![Cadastro de Produtos](./assets/ScreenshotCadastroProdutos.png)
-![Busca](./assets/ScreenshotBusca.png)
+![Login](./assets/screenshots/ScreenshotLogin.jpg) ![Cadastro de Usuário](./assets/screenshots/ScreenshotCadastroUsuario.jpg)
+![Home](./assets/screenshots/ScreenshotHome.jpg) ![Cadastro de Produtos](./assets/screenshots/ScreenshotCadastroProduto.jpg)
+![ListaProdutos](./assets/screenshots/ScreenshotListaProdutos.jpg) ![ProdutosVencidos](./assets/screenshots/ScreenshotProdutosVencidos.jpg)
+![ProdutosCategoria](./assets/screenshots/ScreenshotProdutosCategoria.jpg)
 
 ## :signal_strength: Tecnologias
 
