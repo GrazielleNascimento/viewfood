@@ -23,14 +23,14 @@ const Container = styled.TouchableOpacity`
     margin-bottom: 12.5px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
     elevation: 4;
-    `
+`
 
 const InfoContainer = styled.View`
     margin-left: 20px;
     margin-top: 10px
-    `
+`
 
-const ProdutoImagem = styled.View`
+const ContainerImagem = styled.View`
     font-size: 20px;
     font-weight: bold;
     width: 30%;
@@ -38,9 +38,14 @@ const ProdutoImagem = styled.View`
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #d9d9;
-    
-    `
+    background-color: #d9d9; 
+`
+const ProdutoImagem = styled.ImageBackground`
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+`
 
 const ProdutoNome = styled.Text`
     font-size: 20px;
@@ -139,7 +144,9 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria,
 
     return (
         <Container onPress={onPress} background={cardColor}>
-            <ProdutoImagem></ProdutoImagem>
+            <ContainerImagem>
+                <ProdutoImagem source={require('../../assets/categorias/food.png')} />
+            </ContainerImagem>
             <InfoContainer>
                 <ProdutoNome fontColor={fontColor}>{nome}</ProdutoNome>
                 <InformacaoCategoria categoriaBackgroundColor={categoriaBackgroundColor}>
@@ -175,9 +182,7 @@ const ProdutoCard = ({ codigo, nome, quantidade, dataValidade, preco, categoria,
 
             </InfoContainer>
             <DeleteButton onPress={handleDeleteClick}>
-                {/* <DeleteIcon source={require('../../assets/icons/DeleteIcon.png')} /> */}
                 <FontAwesome5 name={"trash"} size={15} color={fontColor} />
-
             </DeleteButton>
         </Container>
     )
